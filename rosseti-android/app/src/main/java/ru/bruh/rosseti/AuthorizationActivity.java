@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class AuthorizationFragment extends MainActivity{
+import ru.bruh.rosseti.ui.activity.MainActivity;
+
+public class AuthorizationActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +18,7 @@ public class AuthorizationFragment extends MainActivity{
     }
 
     public void click(View view) {
-        Intent intent = new Intent(AuthorizationFragment.this, MainActivity.class);
+        Intent intent = new Intent(AuthorizationActivity.this, MainActivity.class);
         startActivity(intent);
     }
 

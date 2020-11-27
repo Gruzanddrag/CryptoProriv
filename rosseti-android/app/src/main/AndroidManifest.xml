@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Launcher">
         <activity android:name=".ui.activity.MainActivity">
+
+        </activity>
+        <activity android:name=".AuthorizationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
