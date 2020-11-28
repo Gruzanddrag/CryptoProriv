@@ -1,0 +1,172 @@
+<template>
+    <nav>
+        <v-card>
+            <v-navigation-drawer v-model="drawer" dark app style="background-color:#0D1E29;">
+            <v-list>
+                <v-list-item>
+                    <v-img
+                    class="sideLogo"
+                    max-height="150"
+                    max-width="225"
+                    src="@/static/images/logoWhite.png"
+                    >
+                    </v-img>
+                </v-list-item>
+                <v-divider></v-divider>
+                <v-list>
+                    <v-list-item>
+                        <v-list-item-action></v-list-item-action>
+                    </v-list-item>
+                </v-list>
+                <v-list-item>
+                     <v-list-item-avatar>
+                    <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
+                    </v-list-item-avatar>
+                    <v-list-item-content>
+                    <v-list-item-title class="title">
+                        Олег Петров
+                    </v-list-item-title>
+                    <v-list-item-subtitle>petrov@gmail.com</v-list-item-subtitle>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+            <!-- <v-divider></v-divider> -->
+                <v-list nav dense rounded>
+                    <v-list-item 
+                    active-class="light-blue darken-3"
+                    router to="/requestsList">
+                        <v-list-item-icon>
+                            <v-icon>list</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title>Все заявки</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item 
+                    router to="/"
+                    active-class="light-blue darken-3"
+                    >
+                        <v-list-item-icon>
+                            <v-icon>dashboard</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title>Моя доска</v-list-item-title>
+                    </v-list-item>
+                    <v-list-group
+                        :value="false"
+                        prepend-icon="account_box"
+                        color="white"
+                        active-class="light-blue darken-3"
+                    >
+                        <template v-slot:activator>
+                        <v-list-item-title>Профиль</v-list-item-title>
+                        </template>
+
+                        <v-list-group
+                        :value="true"
+                        no-action
+                        sub-group
+                        color="white"
+                        active-class="light-blue darken-1"
+                        >
+                        <template v-slot:activator>
+                            <v-list-item-content>
+                            <v-list-item-title>Пользователь</v-list-item-title>
+                            </v-list-item-content>
+                        </template>
+
+                        <v-list-item link>
+                                <v-list-item-title>Управление</v-list-item-title>
+                                <v-list-item-icon>
+                                    <v-icon>account_box</v-icon>
+                                </v-list-item-icon>
+                            </v-list-item>
+                            <v-list-item link>
+                                <v-list-item-title>Настройки</v-list-item-title>
+                                <v-list-item-icon>
+                                    <v-icon>settings_applications</v-icon>
+                                </v-list-item-icon>
+                            </v-list-item>
+                        </v-list-group>
+                        <v-list-group
+                        no-action
+                        sub-group
+                        color="white"
+                        active-class="light-blue darken-1"
+                        >
+                            <template v-slot:activator>
+                                <v-list-item-content>
+                                <v-list-item-title>Действия</v-list-item-title>
+                                </v-list-item-content>
+                            </template>
+
+                            <v-list-item link>
+                                
+                                <v-list-item-title>Создать заявку</v-list-item-title>
+                                <v-list-item-icon>
+                                    <v-icon>library_add</v-icon>
+                                </v-list-item-icon>
+                            </v-list-item>
+                            <v-list-item link>
+                                <v-list-item-title>Обновить заявку</v-list-item-title>
+                                <v-list-item-icon>
+                                    <v-icon>library_add</v-icon>
+                                </v-list-item-icon>
+                            </v-list-item>
+                            <v-list-item link>
+                                <v-list-item-title>Удалить заявку</v-list-item-title>
+                                <v-list-item-icon>
+                                    <v-icon>delete</v-icon>
+                                </v-list-item-icon>
+                            </v-list-item>
+                            <v-list-item link>
+                                <createRequest />
+                            </v-list-item>
+                        </v-list-group>
+                    </v-list-group>
+                </v-list>
+                <v-divider></v-divider>
+                <v-list nav dense rounded>
+                    <v-list-item 
+                    router to="signInUp"
+                    active-class="light-blue darken-3"
+                    >
+                        <v-list-item-icon>
+                                <v-icon>fas fa-sign-out-alt</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title>Выйти</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-navigation-drawer>
+        </v-card>
+        
+    </nav>
+</template>
+
+<script>
+import createRequest from './createRequest.vue'
+
+export default {
+    name: 'Navbar',
+    components: {
+        createRequest,
+    },
+   data: () => ({
+        admins: [
+        ['Управление', 'account_box'],
+        ['Настройки', 'settings_applications'],
+        ],
+        drawer: true,
+        cruds: [
+        ['Создать заявку', 'library_add'],
+        ['Обновить список', 'library_add'],
+        ['Удалить заявку', 'delete'],
+        ],
+    }),
+}
+</script>
+
+<style scoped>
+
+.sideLogo {
+    margin: 20px 0px;
+}
+
+</style>

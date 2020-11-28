@@ -1,36 +1,26 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-      </div>
-      <v-spacer></v-spacer>
-    </v-app-bar>
-
-    <v-main>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/signInUp">Login</router-link>
-      <router-view></router-view>
-    </v-main>
+    <Navbar />
+    <v-content>
+     <router-view></router-view>
+    </v-content>
   </v-app>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld';
+import Navbar from './components/Navbar.vue';
+// import signInUp from './components/signInUp.vue';
 
 export default {
   name: 'App',
 
   components: {
-    // HelloWorld,
+    Navbar,
+    // signInUp,
+
   },
 
   data: () => ({
-    //
   }),
 };
 </script>
