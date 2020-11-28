@@ -2,7 +2,9 @@ package ru.bruh.rosseti.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class StatementModel {
+import java.io.Serializable;
+
+public class StatementModel implements Serializable {
 
     @SerializedName("id")
     public Integer id;

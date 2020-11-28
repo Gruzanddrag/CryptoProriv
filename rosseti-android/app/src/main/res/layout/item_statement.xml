@@ -2,7 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/title"
@@ -69,11 +71,26 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/background"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@color/background"
         app:layout_constraintTop_toBottomOf="@id/description" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Цифровизация"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+
 
     <ImageView
         android:id="@+id/upvote"
@@ -82,7 +99,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintTop_toBottomOf="@id/category"
         app:srcCompat="@drawable/ic_up_vote"
         app:tint="@color/upvote_tint" />
 
@@ -98,25 +115,26 @@
         app:layout_constraintStart_toEndOf="@id/upvote"
         app:layout_constraintTop_toTopOf="@id/upvote" />
 
-    <!-- TODO: Выставить динамический размер -->
     <TextView
-        android:id="@+id/category"
+        android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/category_background"
-        android:maxEms="8"
         android:paddingStart="12dp"
-        android:paddingTop="8dp"
+        android:paddingTop="6dp"
         android:paddingEnd="12dp"
-        android:paddingBottom="8dp"
-        android:text="Цифровизация"
+        android:paddingBottom="6dp"
+        android:text="Принято"
+        android:drawableStart="@drawable/green_dot"
+        android:gravity="center"
+        android:drawablePadding="4dp"
+        android:background="@drawable/status_background"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/upvote"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/upvote" />
+        app:layout_constraintTop_toTopOf="@id/upvote"
+        app:layout_constraintBottom_toBottomOf="@id/upvote"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -124,7 +142,7 @@
         android:layout_marginTop="8dp"
         android:background="@color/stats_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/category">
+        app:layout_constraintTop_toBottomOf="@id/upvote">
 
         <ImageView
             android:id="@+id/favorite"

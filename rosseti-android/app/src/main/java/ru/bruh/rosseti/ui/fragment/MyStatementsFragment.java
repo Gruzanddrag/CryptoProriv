@@ -24,7 +24,7 @@ public class MyStatementsFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    private MyStatementsAdapter adapter = new MyStatementsAdapter();
+    private final MyStatementsAdapter adapter = new MyStatementsAdapter();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,7 +39,7 @@ public class MyStatementsFragment extends Fragment {
         adapter.setListener(new MyStatementsAdapter.EventListener() {
             @Override
             public void onCommentClick(StatementModel model) {
-                ((MainActivity) getActivity()).setFragment(StatementFragment.newInstance("", ""), true);
+                ((MainActivity) getActivity()).setFragment(CommentsFragment.newInstance(), true);
             }
 
             @Override
@@ -49,7 +49,13 @@ public class MyStatementsFragment extends Fragment {
 
             @Override
             public void onMessageClick(StatementModel model) {
-                ((MainActivity) getActivity()).setFragment(StatementFragment.newInstance("", ""), true);
+                ((MainActivity) getActivity()).setFragment(MessageFragment.newInstance(), true);
+            }
+
+            @Override
+            public void onItemClick(StatementModel model) {
+                ((MainActivity) getActivity()).setFragment(StatementFragment.newInstance(model), true);
+
             }
         });
 

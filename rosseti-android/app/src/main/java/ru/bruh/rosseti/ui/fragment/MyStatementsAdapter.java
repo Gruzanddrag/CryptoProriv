@@ -31,6 +31,8 @@ public class MyStatementsAdapter extends RecyclerView.Adapter<MyStatementsAdapte
         void onFavouriteClick(StatementModel model);
 
         void onMessageClick(StatementModel model);
+
+        void onItemClick(StatementModel model);
     }
 
     private EventListener listener;
@@ -123,6 +125,11 @@ public class MyStatementsAdapter extends RecyclerView.Adapter<MyStatementsAdapte
                 if (listener != null)
                     listener.onMessageClick(model);
             });
+
+            itemView.setOnClickListener(view -> itemView.setOnClickListener(view1 -> {
+                if (listener != null)
+                    listener.onItemClick(model);
+            }));
 
         }
     }

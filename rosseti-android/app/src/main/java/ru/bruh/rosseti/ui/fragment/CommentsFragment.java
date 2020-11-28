@@ -9,16 +9,22 @@ import androidx.fragment.app.Fragment;
 
 import ru.bruh.rosseti.R;
 
-public class MessageFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link CommentsFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class CommentsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_message, container, false);
+        return inflater.inflate(R.layout.fragment_comments, container, false);
     }
 
-    public static MessageFragment newInstance() {
-        return new MessageFragment();
+    public static CommentsFragment newInstance() {
+        return new CommentsFragment();
     }
+
 }

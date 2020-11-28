@@ -25,7 +25,7 @@ public class App extends Application {
                 .setLenient()
                 .create();
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.101:8000/api/")
+                .baseUrl("http://35.204.149.56/rosseti-backend/public/api/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         api = retrofit.create(Api.class);
