@@ -38,19 +38,25 @@
             </v-layout>
                 <v-expansion-panels>
                     <v-expansion-panel
-                        class="pa-6 my-2"
+                        :class="{
+                        'pa-6 my-2': true, 
+                        'active_response' : statement.status.status === 1, 
+                        'accepted_response': statement.status.status === 5, 
+                        'active_com_response': statement.status.status === 3,
+                        'rejected_response': statement.status.status === 4 || statement.status.status === 2
+                        }"
                         v-for="statement in statements"
                         :key="statement.id"
                     >
                     <v-expansion-panel-header>
                         <v-layout row wrap>
-                            <v-flex xs12 md3>
+                            <v-flex xs12 md4>
                             <div class="caption grey--text my-1"><v-icon left medium>drive_file_rename_outline</v-icon>Область применения</div>
                             <div>{{ statement.category.name }}</div>
                             </v-flex>
                             <v-flex xs6 sm2 md1>
                             <div class="caption grey--text my-1"><v-icon left medium>date_range</v-icon>Дата</div>
-                            <div>{{ statement.createdAt }}</div>
+                            <div>{{ new Date(statement.createdAt * 1000).getDate() + '/' + (new Date(statement.createdAt * 1000).getMonth()) + '/' + new Date(statement.createdAt * 1000).getFullYear() + " " + new Date(statement.createdAt * 1000).getHours() + ':' + new Date(statement.createdAt * 1000).getMinutes() }}</div>
                             </v-flex>
                             <v-flex xs6 sm4 md2>
                             <div class="caption grey--text my-1"><v-icon left medium>person</v-icon>Сотрудник</div>
@@ -63,67 +69,16 @@
                             <v-flex xs2 sm4 md2>
                             <div class="caption grey--text my-1"><v-icon left medium>timelapse</v-icon>Статус</div>
                             <div>
-                                <v-chip small class="green darken-1 white--text caption my-2">Проверяется</v-chip>
+                                <v-chip small :class="{
+                                    'white--text caption my-2': true, 
+                                    'blue darken-1' : statement.status.status === 1, 
+                                    'green darken-1': statement.status.status === 5, 
+                                    'purple darken-1': statement.status.status === 3,
+                                    'red darken-1': statement.status.status === 4 || statement.status.status === 2
+                                    }">
+                                    {{ statement.status.statusName}}
+                                    </v-chip>
                             </div>
-                            </v-flex>
-                            <v-flex xs2 sm4 md1>
-                                <div class="caption grey--text">
-                                     <v-dialog
-                                        v-model="dialog"
-                                        width="400"
-                                    >
-                                        <template v-slot:activator="{ on }">
-                                        <v-icon v-on="on" dense large>
-                                            mdi-share-variant
-                                        </v-icon>
-                                        </template>
-                                        <v-card>
-                                        <v-card-title>
-                                            <span class="title font-weight-bold">Share</span>
-                                            <v-spacer></v-spacer>
-                                            <v-btn
-                                            class="mx-0"
-                                            icon
-                                            @click="dialog = false"
-                                            >
-                                            <v-icon>mdi-close-circle-outline</v-icon>
-                                            </v-btn>
-                                        </v-card-title>
-                                        <v-list>
-                                            <v-list-item>
-                                            <v-list-item-action>
-                                                <v-icon color="indigo">
-                                                mdi-facebook
-                                                </v-icon>
-                                            </v-list-item-action>
-                                            <v-card-title>Facebook</v-card-title>
-                                            </v-list-item>
-                                            <v-list-item>
-                                            <v-list-item-action>
-                                                <v-icon color="cyan">
-                                                mdi-twitter
-                                                </v-icon>
-                                            </v-list-item-action>
-                                            <v-card-title>Twitter</v-card-title>
-                                            </v-list-item>
-                                            <v-list-item>
-                                            <v-list-item-action>
-                                                <v-icon>mdi-email</v-icon>
-                                            </v-list-item-action>
-                                            <v-card-title>Email</v-card-title>
-                                            </v-list-item>
-                                        </v-list>
-                                        <v-text-field
-                                            ref="link"
-                                            :label="copied ? 'Link copied' : 'Click to copy link'"
-                                            class="pa-4"
-                                            readonly
-                                            value="https://g.co/kgs/nkrK43"
-                                            @click="copy"
-                                        ></v-text-field>
-                                        </v-card>
-                                    </v-dialog>
-                                </div>
                             </v-flex>
                         </v-layout>
                     </v-expansion-panel-header>
@@ -155,7 +110,13 @@
                                 <v-flex xs4 md2>
                                     <div class="caption grey--text my-1"><v-icon left medium>timelapse</v-icon>Статус</div>
                                     <div>
-                                        <v-chip small class="green darken-1 white--text caption my-2">Проверяется</v-chip>
+                                        <v-chip small :class="{
+                                    'white--text caption my-2': true, 
+                                    'blue darken-1' : statement.status.status === 1, 
+                                    'green darken-1': statement.status.status === 5, 
+                                    'purple darken-1': statement.status.status === 3,
+                                    'red darken-1': statement.status.status === 4 || statement.status.status === 2
+                                    }">{{ statement.status.statusName }}</v-chip>
                                     </div>
                                 </v-flex>
                                 <v-flex xs12 md8>
@@ -340,4 +301,16 @@ export default {
     .dashboard {
         margin: 50px;
     }    
+    .active_response {
+        border-left: 4px solid #1E88E5;
+    }
+    .accepted_response {
+        border-left: 4px solid #43A047;
+    }
+    .rejected_response {
+        border-left: 4px solid #E53935;
+    }
+    .active_com_response {
+        border-left: 4px solid #8E24AA;
+    }
 </style>
