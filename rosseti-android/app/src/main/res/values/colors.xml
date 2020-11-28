@@ -11,4 +11,7 @@
 
     <color name="color_navigation_selected">#000</color>
     <color name="color_navigation_unselected">#90A4AE</color>
+
+    <color name="background">#f4f4f4</color>
+    <color name="stats_background">#f9f9fb</color>
 </resources>
