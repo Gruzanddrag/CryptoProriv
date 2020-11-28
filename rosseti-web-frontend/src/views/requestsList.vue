@@ -56,12 +56,15 @@
                     <span v-html="statement.projectDescription.substring(0,30) + '...' "></span><br>
                   </div>
                 </v-flex>
-                <v-flex xs2 sm4 md2>
+                <v-flex xs12 sm4 md4>
                   <div class="caption grey--text">Статус</div>
                   <div>
-                      <v-chip small class="green darken-1 white--text caption my-2">Проверяется</v-chip>
+                      <v-chip small class="green darken-1 white--text caption my-2">{{ statement.status.statusName }}</v-chip>
                   </div>
                 </v-flex>
+                  <v-flex xs12>
+                      <v-btn>Лайк!</v-btn>
+                  </v-flex>
               </v-layout>
             </v-card>
         </v-container>

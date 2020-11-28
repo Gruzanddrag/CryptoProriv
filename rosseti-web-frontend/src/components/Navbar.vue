@@ -110,15 +110,15 @@
                                     <v-icon>library_add</v-icon>
                                 </v-list-item-icon>
                             </v-list-item>
-                            <v-list-item link>
-                                <v-list-item-title>Удалить заявку</v-list-item-title>
-                                <v-list-item-icon>
-                                    <v-icon>delete</v-icon>
-                                </v-list-item-icon>
-                            </v-list-item>
-                            <v-list-item link>
-                                <createRequest />
-                            </v-list-item>
+<!--                            <v-list-item link>-->
+<!--                                <v-list-item-title>Удалить заявку</v-list-item-title>-->
+<!--                                <v-list-item-icon>-->
+<!--                                    <v-icon>delete</v-icon>-->
+<!--                                </v-list-item-icon>-->
+<!--                            </v-list-item>-->
+<!--                            <v-list-item link>-->
+<!--                                <createRequest />-->
+<!--                            </v-list-item>-->
                         </v-list-group>
                     </v-list-group>
                 </v-list>
@@ -141,12 +141,12 @@
 </template>
 
 <script>
-import createRequest from './createRequest.vue'
+// import createRequest from './createRequest.vue'
 
 export default {
     name: 'Navbar',
     components: {
-        createRequest,
+        // createRequest,
     },
    data: () => ({
         admins: [
@@ -155,9 +155,9 @@ export default {
         ],
         drawer: true,
         cruds: [
-        ['Создать заявку', 'library_add'],
-        ['Обновить список', 'library_add'],
-        ['Удалить заявку', 'delete'],
+            ['Создать заявку', 'library_add'],
+            ['Обновить список', 'library_add'],
+            ['Удалить заявку', 'delete'],
         ],
     }),
 }

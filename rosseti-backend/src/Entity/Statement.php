@@ -6,11 +6,15 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\StatementRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use App\Controller\API\Statement\ShowStatementCollection;
 
 /**
  * @ApiResource(
  *     collectionOperations={
- *          "get"={"normalization_context"={"groups"="statement:collection:get"}},
+ *          "get"={
+ *              "normalization_context"={"groups"="statement:collection:get"},
+ *              "controller"=ShowStatementCollection::class,
+ *          },
  *          "post"={"normalization_context"={"groups"="statement:item:get"}}
  *     },
  *     itemOperations={

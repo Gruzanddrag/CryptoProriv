@@ -37,6 +37,16 @@ class User
      */
     private $statements;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $surname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
     public function __construct()
     {
         $this->statements = new ArrayCollection();
@@ -105,6 +115,38 @@ class User
                 $statement->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @Groups({"statement:item:get", "statement:collection:get"})
+     * @return string|null
+     */
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+
+    public function setSurname(string $surname): self
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * @Groups({"statement:item:get", "statement:collection:get"})
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
