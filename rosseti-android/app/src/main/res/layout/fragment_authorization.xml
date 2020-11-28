@@ -1,125 +1,134 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:background="#b2dfdb"
+    android:background="@drawable/image_power_transmission">
 
-  >
+
+    <Button
+        android:id="@+id/btnAuth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/white"
+        app:cornerRadius="24dp"
+        android:text="@string/to_come_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/image_rectangle_rounded_left_corners_top"
+        app:layout_constraintTop_toBottomOf="@+id/image_rectangle_rounded_left_corners_top">
+
+    </Button>
+
+    <ImageView
+        android:id="@+id/image_rectangle_rounded_left_corners_top"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="170dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/rectangle_rounded_left_corners" />
+
+    <ImageView
+        android:id="@+id/image_rectangle_rounded_rigth_corners_top"
+        android:layout_width="312dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toEndOf="@+id/image_rectangle_rounded_left_corners_top"
+        app:layout_constraintTop_toTopOf="@+id/image_rectangle_rounded_left_corners_top"
+        android:src="@drawable/rectangle_rounded_right_corners" />
+
+
+    <ImageView
+        android:id="@+id/image_rectangle_rounded_rigth_corners_bottom"
+        android:layout_width="312dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/image_rectangle_rounded_left_corners_top"
+        app:layout_constraintTop_toBottomOf="@+id/image_rectangle_rounded_left_corners_top"
+        android:src="@drawable/rectangle_rounded_right_corners" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="597dp"
-        android:background="@drawable/test">
-
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="217dp"
-            android:layout_height="43dp"
-            android:layout_marginTop="104dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="#457B9D"
-            android:onClick="click"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:text="Войти"
-            android:textColor="@color/white"
-            app:cornerRadius="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6">
-
-        </Button>
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="170dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/rectangle1" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="312dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="@+id/imageView6"
-            app:srcCompat="@drawable/rectangle2" />
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="312dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6"
-            app:srcCompat="@drawable/rectangle2" />
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6"
-            app:srcCompat="@drawable/rectangle1" />
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:srcCompat="@drawable/ic_baseline_lock" />
-
-        <ImageView
-            android:id="@+id/imageView12"
-
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="@+id/imageView6"
-            app:srcCompat="@drawable/ic_baseline_person" />
+        android:id="@+id/constraint_layout_email"
+        android:layout_width="312dp"
+        android:layout_height="42dp"
+        app:layout_constraintEnd_toEndOf="@+id/image_rectangle_rounded_rigth_corners_top"
+        app:layout_constraintStart_toStartOf="@+id/image_rectangle_rounded_rigth_corners_top"
+        app:layout_constraintTop_toTopOf="@+id/image_rectangle_rounded_rigth_corners_top">
 
         <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="0dp"
-            android:ems="14"
-            android:hint="Введите пароль"
-            android:inputType="textPassword"
-            app:layout_constraintStart_toStartOf="@+id/imageView9"
-            app:layout_constraintTop_toTopOf="@+id/imageView9" />
-
-        <EditText
-            android:id="@+id/editTextTextEmailAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-
-            android:layout_marginTop="0dp"
-            android:ems="14"
+            android:id="@+id/authorization_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
             android:hint="Введите Email"
             android:inputType="textEmailAddress"
-            app:layout_constraintStart_toStartOf="@+id/imageView7"
-            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+            tools:layout_editor_absoluteX="8dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/image_rectangle_rounded_left_corners_botton"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/image_rectangle_rounded_left_corners_top"
+        app:layout_constraintTop_toBottomOf="@+id/image_rectangle_rounded_left_corners_top"
+        android:src="@drawable/rectangle_rounded_left_corners" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_password"
+        android:layout_width="312dp"
+        android:layout_height="42dp"
+        app:layout_constraintEnd_toEndOf="@+id/image_rectangle_rounded_rigth_corners_bottom"
+        app:layout_constraintStart_toStartOf="@+id/image_rectangle_rounded_rigth_corners_bottom"
+        app:layout_constraintTop_toTopOf="@+id/image_rectangle_rounded_rigth_corners_bottom">
+
+        <EditText
+            android:id="@+id/authorization_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:hint="Введите пароль"
+            android:inputType="textPassword" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/image_lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/image_rectangle_rounded_left_corners_botton"
+        app:layout_constraintTop_toTopOf="@+id/image_rectangle_rounded_left_corners_botton"
+        android:src="@drawable/ic_baseline_lock" />
+
+    <ImageView
+        android:id="@+id/image_profile"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/image_rectangle_rounded_left_corners_top"
+        app:layout_constraintTop_toTopOf="@+id/image_rectangle_rounded_left_corners_top"
+        android:src="@drawable/ic_baseline_person" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
