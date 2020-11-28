@@ -1,7 +1,7 @@
 <template>
     <nav>
         <v-card>
-            <v-navigation-drawer v-model="drawer" dark app style="background-color:#0D1E29;">
+            <v-navigation-drawer v-model="drawer" permanent dark app style="background-color:#0D1E29;">
             <v-list>
                 <v-list-item>
                     <v-img
@@ -49,14 +49,14 @@
                         </v-list-item-icon>
                         <v-list-item-title>Моя доска</v-list-item-title>
                     </v-list-item>
-                    <v-list-group
-                        :value="false"
-                        prepend-icon="account_box"
-                        color="white"
-                        active-class="light-blue darken-3"
-                    >
+                        <v-list-group
+                            :value="false"
+                            prepend-icon="account_box"
+                            color="white"
+                            active-class="light-blue darken-3"
+                        >
                         <template v-slot:activator>
-                        <v-list-item-title>Профиль</v-list-item-title>
+                            <v-list-item-title>Профиль</v-list-item-title>
                         </template>
 
                         <v-list-group
@@ -96,29 +96,13 @@
                                 <v-list-item-title>Действия</v-list-item-title>
                                 </v-list-item-content>
                             </template>
-
-                            <v-list-item link>
-                                
-                                <v-list-item-title>Создать заявку</v-list-item-title>
+                            <createRequest />
+                           <v-list-item link>
+                                <v-list-item-title>Удалить заявку</v-list-item-title>
                                 <v-list-item-icon>
-                                    <v-icon>library_add</v-icon>
+                                    <v-icon>delete</v-icon>
                                 </v-list-item-icon>
                             </v-list-item>
-                            <v-list-item link>
-                                <v-list-item-title>Обновить заявку</v-list-item-title>
-                                <v-list-item-icon>
-                                    <v-icon>library_add</v-icon>
-                                </v-list-item-icon>
-                            </v-list-item>
-<!--                            <v-list-item link>-->
-<!--                                <v-list-item-title>Удалить заявку</v-list-item-title>-->
-<!--                                <v-list-item-icon>-->
-<!--                                    <v-icon>delete</v-icon>-->
-<!--                                </v-list-item-icon>-->
-<!--                            </v-list-item>-->
-<!--                            <v-list-item link>-->
-<!--                                <createRequest />-->
-<!--                            </v-list-item>-->
                         </v-list-group>
                     </v-list-group>
                 </v-list>
@@ -141,12 +125,12 @@
 </template>
 
 <script>
-// import createRequest from './createRequest.vue'
+import createRequest from './createRequest.vue'
 
 export default {
     name: 'Navbar',
     components: {
-        // createRequest,
+        createRequest,
     },
    data: () => ({
         admins: [
