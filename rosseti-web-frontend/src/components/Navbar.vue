@@ -1,7 +1,7 @@
 <template>
     <nav>
         <v-card>
-            <v-navigation-drawer v-model="drawer" permanent dark app style="background-color:#0D1E29;">
+            <v-navigation-drawer v-model="drawer" permanent dark  app style="background-color:#0D1E29; border-radius: 0 5px 5px 0">
             <v-list>
                 <v-list-item>
                     <v-img
@@ -20,7 +20,7 @@
                 </v-list>
                 <v-list-item>
                      <v-list-item-avatar>
-                    <v-img src="https://randomuser.me/api/portraits/men/55.jpg"></v-img>
+                    <v-img src="https://randomuser.me/api/portraits/men/21.jpg"></v-img>
                     </v-list-item-avatar>
                     <v-list-item-content>
                     <v-list-item-title class="title">
@@ -150,7 +150,7 @@ export default {
 <style scoped>
 
 .sideLogo {
-    margin: 20px 0px;
+    margin: 10px 0px 20px 0px;
 }
 
 </style>

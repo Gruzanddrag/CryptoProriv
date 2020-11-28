@@ -9,7 +9,23 @@
                         small 
                         text 
                         color="light-blue darken-4" 
-                        @click="sortBy('date')" 
+                        @click="sortBy('statement.status.status')" 
+                        v-bind="attrs" 
+                        v-on="on"
+                        >
+                            <v-icon left small>insert_chart</v-icon>
+                            <span class="caption text-lowercase">По статусу</span>
+                        </v-btn>
+                    </template>
+                    <span>Сортировать по статусу</span>
+                </v-tooltip>
+                <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }"> 
+                        <v-btn 
+                        small 
+                        text 
+                        color="light-blue darken-4" 
+                        @click="sortBy('statement.createdAt')" 
                         v-bind="attrs" 
                         v-on="on"
                         >
@@ -25,7 +41,7 @@
                         small 
                         text 
                         color="light-blue darken-4" 
-                        @click="sortBy('title')" 
+                        @click="sortBy('statement.category.name')" 
                         v-bind="attrs" 
                         v-on="on"
                         >
@@ -36,6 +52,20 @@
                     <span>Сортировать по названию</span>
                 </v-tooltip>
             </v-layout>
+            <v-combobox
+                    v-model="model"
+                    :items="tags"
+                    :search-input.sync="search"
+                    hide-selected
+                    label="Начните писать тэг"
+                    multiple
+                    persistent-hint
+                    small-chips
+                    rounded
+                    solo
+                    prepend-icon="search"
+            >
+            </v-combobox>
                 <v-expansion-panels>
                     <v-expansion-panel
                         :class="{
@@ -54,20 +84,20 @@
                             <div class="caption grey--text my-1"><v-icon left medium>drive_file_rename_outline</v-icon>Область применения</div>
                             <div>{{ statement.category.name }}</div>
                             </v-flex>
-                            <v-flex xs6 sm2 md1>
+                            <v-flex xs6 sm2 md2>
                             <div class="caption grey--text my-1"><v-icon left medium>date_range</v-icon>Дата</div>
-                            <div>{{ new Date(statement.createdAt * 1000).getDate() + '/' + (new Date(statement.createdAt * 1000).getMonth()) + '/' + new Date(statement.createdAt * 1000).getFullYear() + " " + new Date(statement.createdAt * 1000).getHours() + ':' + new Date(statement.createdAt * 1000).getMinutes() }}</div>
+                            <div>{{ d = new Date(statement.createdAt * 1000).getDate() + '/' + (new Date(statement.createdAt * 1000).getMonth()) + '/' + new Date(statement.createdAt * 1000).getFullYear() + " " + new Date(statement.createdAt * 1000).getHours() + ':' + new Date(statement.createdAt * 1000).getMinutes() }}</div>
                             </v-flex>
                             <v-flex xs6 sm4 md2>
                             <div class="caption grey--text my-1"><v-icon left medium>person</v-icon>Сотрудник</div>
                             <div>{{ statement.author.fIO }}</div>
                             </v-flex>
-                            <v-flex xs6 sm4 md3>
+                            <v-flex xs6 sm4 md2>
                             <div class="caption grey--text my-1"><v-icon left medium>category</v-icon>Категория</div>
                              <div>{{  statement.category.name }}</div>
                             </v-flex>
                             <v-flex xs2 sm4 md2>
-                            <div class="caption grey--text my-1"><v-icon left medium>timelapse</v-icon>Статус</div>
+                            <div class="caption grey--text my-3"><v-icon left medium>timelapse</v-icon>Статус</div>
                             <div>
                                 <v-chip small :class="{
                                     'white--text caption my-2': true, 
@@ -95,13 +125,14 @@
                                         elevation="2"
                                         fab
                                         icon
+                                        @click="statement.upvotes++"
                                         ><v-icon>mdi-thumb-up</v-icon></v-btn>
                                         <span style="margin: 2px 10px; color:grey;">Понравилось: <strong>{{ statement.upvotes }}</strong></span>
                                     </div>
                                 </v-flex>
                                 <v-flex xs4 md2>
                                     <div class="caption grey--text my-1"><v-icon left medium>date_range</v-icon>Дата</div>
-                                    <div>{{ statement.createdAt }}</div>
+                                    <div>{{ d = new Date(statement.createdAt * 1000).getDate() + '/' + (new Date(statement.createdAt * 1000).getMonth()) + '/' + new Date(statement.createdAt * 1000).getFullYear() + " " + new Date(statement.createdAt * 1000).getHours() + ':' + new Date(statement.createdAt * 1000).getMinutes() }}</div>
                                 </v-flex>
                                 <v-flex xs4 md2>
                                     <div class="caption grey--text my-1"><v-icon left medium>person</v-icon>Сотрудник</div>
@@ -281,6 +312,15 @@ export default {
         this.reloadStatements()
     },
     methods: {
+        like() {
+            this.statements.upvotes++;
+            console.log(this.statements.upvotes);
+        },
+        sortBy(prop) {
+            console.log("Before: ", this.statements)
+            this.statements.sort((a,b) => a[prop] < b[prop] ? 1 : -1)
+            console.log("After: ", this.statements)
+        },
         reloadStatements() {
             return axios.get(this.$store.state.apiurl + "statements")
             .then(res => {
@@ -293,6 +333,22 @@ export default {
         document.execCommand('selectAll', false, null)
         this.copied = document.execCommand('copy')
       },
+    },
+    computed: {
+        allowedJobsIds: function() {
+            if(this.statements === null) {
+                return []
+            }
+            return this.statements.map(el => el[this.tabs]).flat().map(el => el.id)
+            },
+            filteredJobs: function() {
+            console.log(this.allowedJobsIds)
+            if(this.allowedJobsIds.length === 0 || !this.allowedJobsIds) {
+                return this.statements
+            } else {
+                return this.statements.filter(el => this.allowedJobsIds.includes(el.id))
+            }
+        }
     },
 }
 </script>
