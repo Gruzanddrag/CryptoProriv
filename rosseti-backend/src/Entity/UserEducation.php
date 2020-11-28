@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserEducationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
@@ -44,6 +45,10 @@ class UserEducation
         return $this->id;
     }
 
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return string|null
+     */
     public function getUniversity(): ?string
     {
         return $this->university;
@@ -56,6 +61,10 @@ class UserEducation
         return $this;
     }
 
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return string|null
+     */
     public function getMajor(): ?string
     {
         return $this->major;
@@ -68,6 +77,10 @@ class UserEducation
         return $this;
     }
 
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return string|null
+     */
     public function getGraduationYear(): ?string
     {
         return $this->graduationYear;

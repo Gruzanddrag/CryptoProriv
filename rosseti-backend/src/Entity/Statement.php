@@ -19,7 +19,7 @@ use App\Controller\API\Statement\ShowStatementCollection;
  *     },
  *     itemOperations={
  *          "get"={"normalization_context"={"groups"="statement:item:get"}},
- *          "put"={"normalization_context"={"groups"="statement:item:get"}}
+ *          "put"={"normalization_context"={"groups"="statement:item:get"}},
  *     })
  * @ORM\Entity(repositoryClass=StatementRepository::class)
  * @ORM\HasLifecycleCallbacks()
@@ -113,7 +113,9 @@ class Statement
 
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return int|null
      */
     public function getId(): ?int
@@ -122,7 +124,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return string|null
      */
     public function getName(): ?string
@@ -138,6 +143,7 @@ class Statement
     }
 
     /**
+     *
      * @Groups({"statement:item:get", "statement:collection:get"})
      * @return User|null
      */
@@ -154,7 +160,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return string|null
      */
     public function getProjectDescription(): ?string
@@ -170,7 +179,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return StatementCategory|null
      */
     public function getCategory(): ?StatementCategory
@@ -186,7 +198,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return string|null
      */
     public function getEconomicEffect(): ?string
@@ -202,7 +217,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return StatementStatus
      */
     public function getStatus(): StatementStatus
@@ -218,7 +236,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return int|null
      */
     public function getCreatedAt(): ?int
@@ -234,7 +255,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return int|null
      */
     public function getUpdatedAt(): ?int
@@ -250,7 +274,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return bool|null
      */
     public function getGeneratingSaving(): ?bool
@@ -266,7 +293,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return string|null
      */
     public function getNewness(): ?string
@@ -282,7 +312,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return int|null
      */
     public function getUpvotes(): ?int
@@ -322,7 +355,10 @@ class Statement
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     *
+     * @Groups({
+     *     "statement:item:get", "statement:collection:get",
+     *     "user:item:get", "user:collection:get"})
      * @return string|null
      */
     public function getAdvantagesDescription(): ?string

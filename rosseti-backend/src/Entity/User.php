@@ -10,7 +10,17 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     collectionOperations={
+ *          "get"={
+ *              "normalization_context"={"groups"="user:collection:get"},
+ *          },
+ *          "post"={"normalization_context"={"groups"="user:item:get"}}
+ *     },
+ *     itemOperations={
+ *          "get"={"normalization_context"={"groups"="user:item:get"}},
+ *          "put"={"normalization_context"={"groups"="user:item:get"}},
+ *     }))
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User
@@ -47,6 +57,11 @@ class User
      */
     private $name;
 
+    /**
+     * @ORM\OneToOne(targetEntity=UserProfile::class, cascade={"persist", "remove"}, mappedBy="user")
+     */
+    private $userProfile;
+
     public function __construct()
     {
         $this->statements = new ArrayCollection();
@@ -77,6 +92,10 @@ class User
         return $this;
     }
 
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return array|null
+     */
     public function getRoles(): ?array
     {
         return $this->roles;
@@ -90,6 +109,7 @@ class User
     }
 
     /**
+     * @Groups({"user:item:get", "user:collection:get"})
      * @return Collection|Statement[]
      */
     public function getStatements(): Collection
@@ -120,7 +140,7 @@ class User
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     * @Groups({"user:item:get", "user:collection:get"})
      * @return string|null
      */
     public function getSurname(): ?string
@@ -136,7 +156,7 @@ class User
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     * @Groups({"user:item:get", "user:collection:get"})
      * @return string|null
      */
     public function getName(): ?string
@@ -147,6 +167,22 @@ class User
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return UserProfile|null
+     */
+    public function getUserProfile(): ?UserProfile
+    {
+        return $this->userProfile;
+    }
+
+    public function setUserProfile(?UserProfile $userProfile): self
+    {
+        $this->userProfile = $userProfile;
 
         return $this;
     }

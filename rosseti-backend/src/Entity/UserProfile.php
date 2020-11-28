@@ -7,6 +7,7 @@ use App\Repository\UserProfileRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
@@ -66,6 +67,10 @@ class UserProfile
         return $this->id;
     }
 
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return int|null
+     */
     public function getRating(): ?int
     {
         return $this->rating;
@@ -90,6 +95,10 @@ class UserProfile
         return $this;
     }
 
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return string|null
+     */
     public function getPosition(): ?string
     {
         return $this->position;
@@ -102,6 +111,10 @@ class UserProfile
         return $this;
     }
 
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return string|null
+     */
     public function getDepartment(): ?string
     {
         return $this->department;
@@ -114,6 +127,10 @@ class UserProfile
         return $this;
     }
 
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return int|null
+     */
     public function getExperience(): ?int
     {
         return $this->Experience;
@@ -126,6 +143,10 @@ class UserProfile
         return $this;
     }
 
+    /**
+     * @Groups({"user:item:get", "user:collection:get"})
+     * @return string|null
+     */
     public function getPhone(): ?string
     {
         return $this->phone;
@@ -139,6 +160,7 @@ class UserProfile
     }
 
     /**
+     * @Groups({"user:item:get", "user:collection:get"})
      * @return Collection|UserEducation[]
      */
     public function getUserEducation(): Collection

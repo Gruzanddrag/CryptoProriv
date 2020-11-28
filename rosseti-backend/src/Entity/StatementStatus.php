@@ -16,7 +16,7 @@ class StatementStatus
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     * @Groups({"statement:item:get", "statement:collection:get","user:item:get", "user:collection:get"})
      * @param mixed $status
      */
     public function setStatus($status): void
@@ -33,7 +33,7 @@ class StatementStatus
     }
 
     /**
-     * @Groups({"statement:item:get", "statement:collection:get"})
+     * @Groups({"statement:item:get", "statement:collection:get","user:item:get", "user:collection:get"})
      * @return string
      */
     public function getStatusName(): string
