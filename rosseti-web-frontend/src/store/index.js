@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    apiurl: "http://192.168.0.101:8000/api/"
+    apiurl: "http://35.204.149.56/rosseti-backend/public/api/"
   },
   mutations: {
   },

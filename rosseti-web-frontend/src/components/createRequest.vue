@@ -42,10 +42,10 @@
       >
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title>Заполните поля</v-list-item-title>
+            <h2>Заполните поля</h2>
             <v-form class="px-3">
               <v-layout row wrap>
-                <v-flex xs12 md5 ma-5>
+                <v-col cols="6">
                   <v-text-field
                     name="name"
                     label="Название проекта"
@@ -64,22 +64,17 @@
                     prepend-icon="person"
                     v-model="title"
                   ></v-text-field>
-                  <v-text-field
-                    label="Описание положительного эффекта"
-                    name="name"
-                    prepend-icon="add"
-                    v-model="disadvantage"
-                    textarea
-                  ></v-text-field>
-                  <v-text-field
-                    label="Описание недостатков актуальной системы"
-                    name="name"
-                    prepend-icon="minimize"
-                    v-model="advantage"
-                    textarea
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs12 md6 my-5>
+                    <h3 class="text mb-3">Описательная часть</h3><br/>
+                  <tiptap-vuetify
+                    v-model="content"
+                    :extensions="extensions"
+                    :toolbar-attributes="{ color: 'yellow' }"
+                    elevation="0"
+                    min-height="450"
+                    :card-props="{ flat: true, color: 'grey lighten-3' }"
+                  />
+                  </v-col>
+                  <v-col cols="6">
                     <v-file-input
                       counter
                       multiple
@@ -96,38 +91,39 @@
                       placeholder="Дополнительные файлы"
                       truncate-length="15"
                     ></v-file-input>
-                    <v-textarea
-                      name="input-7-1"
-                      label="Экономический эффект"
-                      filled
-                      v-model="ecoEffect"
-                      prepend-icon="description"
-                      hint="Введите текст"
-                    ></v-textarea>
-                </v-flex>
+                    <div style="margin-bottom:70px;"></div>
+                    <h3 class="text mb-3">Описание недостатков существующей системы</h3><br/>
+                    <tiptap-vuetify
+                      v-model="content"
+                      :extensions="extensions"
+                      :toolbar-attributes="{ color: 'blue' }"
+                      elevation="0"
+                      min-height="200"
+                      :card-props="{ flat: true, color: 'grey lighten-3' }"
+                    />
+                    <h3 class="text mb-3">Описание экономического эффекта</h3><br/>
+                    <tiptap-vuetify
+                      v-model="content"
+                      :extensions="extensions"
+                      :toolbar-attributes="{ color: 'orange' }"
+                      elevation="0"
+                      min-height="200"
+                      :card-props="{ flat: true, color: 'grey lighten-3' }"
+                    />
+                    <h3 class="text mb-3">Описание положительного эффекта</h3><br/>
+                    <tiptap-vuetify
+                      v-model="content"
+                      :extensions="extensions"
+                      :toolbar-attributes="{ color: 'green' }"
+                      elevation="0"
+                      min-height="200"
+                      :card-props="{ flat: true, color: 'grey lighten-3' }"
+                    />
+                </v-col>
               </v-layout>
             </v-form>
           </v-list-item-content>
         </v-list-item>
-      </v-list>
-      <v-divider></v-divider>
-      <v-list
-        three-line
-        subheader
-      >
-        <v-subheader>Описательная часть</v-subheader>
-              <div class="container">
-                <!-- Use the component in the right place of the template -->
-                <tiptap-vuetify
-                  v-model="content"
-                  :extensions="extensions"
-                  placeholder="Это описательная часть заявления. Начинайте писать здесь.."
-                  :toolbar-attributes="{ color: 'yellow' }"
-                  elevation="0"
-                  min-height="900px"
-                  :card-props="{ flat: true, color: 'grey lighten-3' }"
-                />
-              </div>
       </v-list>
     </v-card>
   </v-dialog>
@@ -167,8 +163,8 @@ import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, Paragrap
     ],
     // starting editor's content
     content: `
-      <h1>Оформить описательную часть можно</h1>
-      <p>в данном окне</strong> окне.</p>
+      <h1>Заголовок первого уровня</h1>
+      <p>параграф</strong> выделение.</p>
     `
   })
     

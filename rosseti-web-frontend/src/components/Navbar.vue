@@ -8,7 +8,7 @@
                     class="sideLogo"
                     max-height="150"
                     max-width="225"
-                    src="@/static/images/logoWhite.png"
+                    src="@/static/images/logoWhite.svg"
                     >
                     </v-img>
                 </v-list-item>
@@ -20,7 +20,7 @@
                 </v-list>
                 <v-list-item>
                      <v-list-item-avatar>
-                    <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
+                    <v-img src="https://randomuser.me/api/portraits/men/55.jpg"></v-img>
                     </v-list-item-avatar>
                     <v-list-item-content>
                     <v-list-item-title class="title">
