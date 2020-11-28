@@ -2,5 +2,5 @@ module.exports = {
   "transpileDependencies": [
     "vuetify"
   ],
-  'publicPath': '/dist/'
+  'publicPath': '/rosseti-web-frontend/dist/'
 }
