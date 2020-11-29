@@ -5,6 +5,7 @@ import Signupform from '../views/signInUp.vue'
 import requestsList from '../views/requestsList.vue'
 import myDesk from '../views/myDesk.vue'
 import messegeList from '../views/messegeList.vue'
+import Moderator from '../views/moderator.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/requestsList',
     name: 'requestsList',
     component: requestsList
+  },
+  {
+    path: '/moderator',
+    name: 'moderator',
+    component: Moderator
   },
   {
     path: '/about',
