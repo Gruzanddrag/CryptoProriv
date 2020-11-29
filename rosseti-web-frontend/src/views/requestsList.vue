@@ -303,7 +303,7 @@
                                         </v-row>
                                         </v-timeline-item>                   
                                     </v-timeline>
-                                    </v-container>
+                                </v-container>
                                 </v-flex>
                             </v-layout>
                     </v-expansion-panel-content>
@@ -327,7 +327,7 @@ export default {
         copied: false,
         dialog: false,
         rating: 10,
-        statements: []
+        statements: [],
     }),
     created() {
         this.reloadStatements()
@@ -362,7 +362,7 @@ export default {
             }
             return this.statements.map(el => el[this.tabs]).flat().map(el => el.id)
             },
-            filteredJobs: function() {
+        filteredJobs: function() {
             console.log(this.allowedJobsIds)
             if(this.allowedJobsIds.length === 0 || !this.allowedJobsIds) {
                 return this.statements

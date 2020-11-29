@@ -1,5 +1,5 @@
 <template>
-<v-app class="blue-grey lighten-5">
+    <v-app class="blue-grey lighten-5">
     <v-layout row>
         <v-flex md4>
             <v-app class="blue-grey lighten-5">
