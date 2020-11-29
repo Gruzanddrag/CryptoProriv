@@ -64,15 +64,9 @@
                     prepend-icon="person"
                     v-model="title"
                   ></v-text-field>
-                    <h3 class="text mb-3">Описательная часть</h3><br/>
-                  <tiptap-vuetify
-                    v-model="content"
-                    :extensions="extensions"
-                    :toolbar-attributes="{ color: 'yellow' }"
-                    elevation="0"
-                    min-height="450"
-                    :card-props="{ flat: true, color: 'grey lighten-3' }"
-                  />
+                   <v-switch
+                      label="Идея является моей и указанных сооавторов"
+                    ></v-switch>
                   </v-col>
                   <v-col cols="6">
                     <v-file-input
@@ -91,35 +85,24 @@
                       placeholder="Дополнительные файлы"
                       truncate-length="15"
                     ></v-file-input>
-                    <div style="margin-bottom:70px;"></div>
-                    <h3 class="text mb-3">Описание недостатков существующей системы</h3><br/>
-                    <tiptap-vuetify
-                      v-model="content"
-                      :extensions="extensions"
-                      :toolbar-attributes="{ color: 'blue' }"
-                      elevation="0"
-                      min-height="200"
-                      :card-props="{ flat: true, color: 'grey lighten-3' }"
-                    />
-                    <h3 class="text mb-3">Описание экономического эффекта</h3><br/>
-                    <tiptap-vuetify
-                      v-model="content"
-                      :extensions="extensions"
-                      :toolbar-attributes="{ color: 'orange' }"
-                      elevation="0"
-                      min-height="200"
-                      :card-props="{ flat: true, color: 'grey lighten-3' }"
-                    />
-                    <h3 class="text mb-3">Описание положительного эффекта</h3><br/>
-                    <tiptap-vuetify
-                      v-model="content"
-                      :extensions="extensions"
-                      :toolbar-attributes="{ color: 'green' }"
-                      elevation="0"
-                      min-height="200"
-                      :card-props="{ flat: true, color: 'grey lighten-3' }"
-                    />
-                </v-col>
+                      <v-text-field
+                      name="idea"
+                      label="Новизна"
+                      prepend-icon="lightbulb"
+                      v-model="title"
+                    ></v-text-field>
+                  </v-col>
+                  <h2 style="margin-bottom: 20px;">Описание рационализаторского предложения</h2>
+                  <v-col cols="12">
+                  <tiptap-vuetify
+                    v-model="content"
+                    :extensions="extensions"
+                    :toolbar-attributes="{ color: 'yellow' }"
+                    elevation="0"
+                    min-height="450"
+                    :card-props="{ flat: true, color: 'grey lighten-3' }"
+                  />
+                  </v-col>
               </v-layout>
             </v-form>
           </v-list-item-content>
@@ -163,8 +146,15 @@ import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, Paragrap
     ],
     // starting editor's content
     content: `
-      <h1>Заголовок первого уровня</h1>
-      <p>параграф</strong> выделение.</p>
+      <h1>В данном поле вам необходимо</h1>
+      <h2>объяснить такие темы, как:</h2>
+      <ul>
+        <li>Экономический доход вашего предложения</li>
+        <li>Описание недостатков актуального подхода</li>
+        <li>Описание положительного эффекта</li>
+        <li>Требуемые сроки на внедрение</li>
+        <li>Полезность вашего решения</li>
+      <ul>
     `
   })
     

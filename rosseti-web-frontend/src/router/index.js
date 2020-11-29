@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Signupform from '../views/signInUp.vue'
 import requestsList from '../views/requestsList.vue'
+import myDesk from '../views/myDesk.vue'
+import messegeList from '../views/messegeList.vue'
 
 Vue.use(VueRouter)
 
@@ -11,6 +13,16 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/myDesk',
+    name: 'myDesk',
+    component: myDesk
+  },
+  {
+    path: '/messegeList',
+    name: 'messegeList',
+    component: messegeList
   },
   {
     path: '/signInUp',

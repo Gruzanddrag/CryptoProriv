@@ -1,4 +1,5 @@
 <template>
+<v-app class="blue-grey lighten-5">
   <v-container id="signinup-form" class="fill-height">
     <v-row align="center" justify="center" no-gutters>
       <v-col cols="12" sm="8" md="8">
@@ -7,7 +8,7 @@
             class="ma-9"
             max-height="150"
             max-width="250"
-            src="@/static/images/logo.png"
+            src="@/static/images/logo.svg"
             >
             </v-img>
         <v-card class="evelation-12 card">
@@ -195,6 +196,7 @@
       </v-col>
     </v-row>
   </v-container>
+  </v-app>
 </template>
 
 <script>

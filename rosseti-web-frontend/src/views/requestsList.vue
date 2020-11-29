@@ -1,12 +1,13 @@
 <template>
+<v-app class="blue-grey lighten-5">
   <div class="dashboard">
-    <h1 class="subheading grey--text">Активные предложения</h1>
+    <h1 class="" style="color:#0D1E29;">Активные предложения</h1>
         <v-container class="my-10">
             <v-layout row class="mb-3 pa-3">
                 <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }"> 
                         <v-btn 
-                        small 
+                        small
                         text 
                         color="light-blue darken-4" 
                         @click="sortBy('statement.status.status')" 
@@ -80,7 +81,7 @@
                     >
                     <v-expansion-panel-header>
                         <v-layout row wrap>
-                            <v-flex xs12 md4>
+                            <v-flex xs12 md3>
                             <div class="caption grey--text my-1"><v-icon left medium>drive_file_rename_outline</v-icon>Область применения</div>
                             <div>{{ statement.category.name }}</div>
                             </v-flex>
@@ -92,15 +93,15 @@
                             <div class="caption grey--text my-1"><v-icon left medium>person</v-icon>Сотрудник</div>
                             <div>{{ statement.author.fIO }}</div>
                             </v-flex>
-                            <v-flex xs6 sm4 md2>
+                            <v-flex xs6 sm4 md3>
                             <div class="caption grey--text my-1"><v-icon left medium>category</v-icon>Категория</div>
                              <div>{{  statement.category.name }}</div>
                             </v-flex>
                             <v-flex xs2 sm4 md2>
-                            <div class="caption grey--text my-3"><v-icon left medium>timelapse</v-icon>Статус</div>
+                            <div class="caption grey--text my-1"><v-icon left medium>timelapse</v-icon>Статус</div>
                             <div>
                                 <v-chip small :class="{
-                                    'white--text caption my-2': true, 
+                                    'white--text caption my-3': true, 
                                     'blue darken-1' : statement.status.status === 1, 
                                     'green darken-1': statement.status.status === 5, 
                                     'purple darken-1': statement.status.status === 3,
@@ -121,8 +122,8 @@
                                 <v-flex xs12 md2>
                                     <div class="text-right">
                                         <v-btn
-                                        color="accent"
-                                        elevation="2"
+                                        color="primary"
+                                        elevation="3"
                                         fab
                                         icon
                                         @click="statement.upvotes++"
@@ -150,9 +151,24 @@
                                     }">{{ statement.status.statusName }}</v-chip>
                                     </div>
                                 </v-flex>
+                                <v-flex xs4 md2>
+                                    <!-- <div class="caption grey--text my-1"><v-icon left medium>file_present</v-icon>Документы</div> -->
+                                    <div>
+                                        <documentsReq 
+                                        v-bind:desc="statement.projectDescription"
+                                        v-bind:econ="statement.economicEffect"
+                                        v-bind:adva="statement.advantagesDescription"
+                                        v-bind:newn="statement.newness"
+                                        v-bind:disa="statement.disadvantageDescription"
+                                        />
+                                    </div>
+                                </v-flex>
                                 <v-flex xs12 md8>
                                     <h3>Описание предложения</h3>
                                     <span v-html="statement.projectDescription"></span>
+                                </v-flex>
+                                <v-flex xs12 md12>
+                                    <v-divider class="ma-6"></v-divider>
                                 </v-flex>
                                 <v-flex xs12 md5>
                                 <v-container style="max-width: 550px;" align="left">
@@ -295,13 +311,18 @@
                 </v-expansion-panels>
         </v-container>
   </div>
+  </v-app>
 </template>
 
 <script>
 import axios from "axios"
+import documentsReq from "@/components/documentsReq.vue"
 
 export default {
     name: 'requestsList',
+    components: {
+        documentsReq,
+    },
     data: () => ({
         copied: false,
         dialog: false,

@@ -34,57 +34,33 @@
                 <v-list nav dense rounded>
                     <v-list-item 
                     active-class="light-blue darken-3"
-                    router to="/requestsList">
+                    router to="/requestsList"
+                    transition="fade-transition">
                         <v-list-item-icon>
                             <v-icon>list</v-icon>
                         </v-list-item-icon>
                         <v-list-item-title>Все заявки</v-list-item-title>
                     </v-list-item>
                     <v-list-item 
-                    router to="/"
+                    router to="/myDesk"
+                    transition="fade-transition"
                     active-class="light-blue darken-3"
                     >
                         <v-list-item-icon>
                             <v-icon>dashboard</v-icon>
                         </v-list-item-icon>
-                        <v-list-item-title>Моя доска</v-list-item-title>
+                        <v-list-item-title>Мой профиль</v-list-item-title>
                     </v-list-item>
-                        <v-list-group
-                            :value="false"
-                            prepend-icon="account_box"
-                            color="white"
-                            active-class="light-blue darken-3"
-                        >
-                        <template v-slot:activator>
-                            <v-list-item-title>Профиль</v-list-item-title>
-                        </template>
-
-                        <v-list-group
-                        :value="true"
-                        no-action
-                        sub-group
-                        color="white"
-                        active-class="light-blue darken-1"
-                        >
-                        <template v-slot:activator>
-                            <v-list-item-content>
-                            <v-list-item-title>Пользователь</v-list-item-title>
-                            </v-list-item-content>
-                        </template>
-
-                        <v-list-item link>
-                                <v-list-item-title>Управление</v-list-item-title>
-                                <v-list-item-icon>
-                                    <v-icon>account_box</v-icon>
-                                </v-list-item-icon>
-                            </v-list-item>
-                            <v-list-item link>
-                                <v-list-item-title>Настройки</v-list-item-title>
-                                <v-list-item-icon>
-                                    <v-icon>settings_applications</v-icon>
-                                </v-list-item-icon>
-                            </v-list-item>
-                        </v-list-group>
+                    <v-list-item 
+                    router to="/messageList"
+                    transition="fade-transition"
+                    active-class="light-blue darken-3"
+                    >
+                        <v-list-item-icon>
+                            <v-icon>dashboard</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title>Мессенджер</v-list-item-title>
+                    </v-list-item>
                         <v-list-group
                         no-action
                         sub-group
@@ -96,7 +72,7 @@
                                 <v-list-item-title>Действия</v-list-item-title>
                                 </v-list-item-content>
                             </template>
-                            <createRequest />
+                            <createRequest/>
                            <v-list-item link>
                                 <v-list-item-title>Удалить заявку</v-list-item-title>
                                 <v-list-item-icon>
@@ -104,12 +80,12 @@
                                 </v-list-item-icon>
                             </v-list-item>
                         </v-list-group>
-                    </v-list-group>
                 </v-list>
                 <v-divider></v-divider>
                 <v-list nav dense rounded>
                     <v-list-item 
                     router to="signInUp"
+                    transition="hide-on-leave"
                     active-class="light-blue darken-3"
                     >
                         <v-list-item-icon>
