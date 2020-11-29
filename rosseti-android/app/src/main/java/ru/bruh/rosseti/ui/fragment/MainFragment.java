@@ -31,7 +31,7 @@ public class MainFragment extends Fragment {
     private RecyclerView recyclerView;
     private MaterialSearchBar searchBar;
 
-    private final MyStatementsAdapter adapter = new MyStatementsAdapter();
+    private MyStatementsAdapter adapter;
 
     private List<StatementModel> items;
 
@@ -45,6 +45,7 @@ public class MainFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view);
         searchBar = view.findViewById(R.id.searchBar);
 
+        adapter = new MyStatementsAdapter();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
@@ -62,7 +63,7 @@ public class MainFragment extends Fragment {
 
             @Override
             public void onMessageClick(StatementModel model) {
-                ((MainActivity) getActivity()).setFragment(MessageFragment.newInstance(), true);
+                ((MainActivity) getActivity()).setFragment(MessageFragment.newInstance(model.author.fIO), true);
             }
 
             @Override
@@ -83,7 +84,8 @@ public class MainFragment extends Fragment {
                 List<StatementModel> list = new ArrayList<>();
 
                 for (StatementModel item : items) {
-                    if (item.name.contains(charSequence) || item.author.fIO.contains(charSequence))
+                    if (item.name.toLowerCase().contains(charSequence.toString().toLowerCase())
+                            || item.author.fIO.toLowerCase().contains(charSequence.toString().toLowerCase()))
                         list.add(item);
                 }
 

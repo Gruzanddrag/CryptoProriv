@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@color/white"
-    tools:context=".ui.fragment.MyStatementsFragment">
+    tools:background="@color/white">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -65,7 +64,6 @@
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="ФИО"
-                    android:text="Иванов Иван Иванович"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -85,10 +83,10 @@
                     android:id="@+id/birth_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="22.09.1974"
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="Дата рождения"
-                    android:text="11.09.1971"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -111,7 +109,6 @@
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="Номер телефона"
-                    android:text="+7 (961) 470-16-70"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -142,7 +139,7 @@
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="Компания"
-                    android:text="Ленэнерго"
+                    android:text="ПАО РОССЕТИ"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -165,7 +162,6 @@
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="Подразделение"
-                    android:text="Электрификация"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -188,7 +184,6 @@
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="Должность"
-                    android:text="Электрик"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -211,7 +206,6 @@
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="Стаж"
-                    android:text="4 года 5 мес."
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -242,7 +236,6 @@
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="Обучение"
-                    android:text="СКФУ 2006г"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -274,7 +267,6 @@
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="Количество заявок"
-                    android:text="4"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -286,6 +278,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="64dp"
                 android:background="@android:color/transparent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -297,7 +290,7 @@
                     android:background="@android:color/transparent"
                     android:editable="false"
                     android:hint="Статус"
-                    android:text="Участник"
+                    android:text="Опытный участник"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 

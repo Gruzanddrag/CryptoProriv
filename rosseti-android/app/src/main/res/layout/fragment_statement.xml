@@ -2,10 +2,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginBottom="16dp"
                 android:text="Заголовок"
                 android:textColor="@color/black"
@@ -38,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:text="Владимиров А.А."
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="14sp"
@@ -61,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:text="22 часа назад"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@id/small_dot"
@@ -73,11 +72,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:background="@drawable/status_background"
+                android:drawableStart="@drawable/green_dot"
+                android:drawablePadding="6dp"
                 android:paddingStart="12dp"
                 android:paddingTop="6dp"
                 android:paddingEnd="12dp"
                 android:paddingBottom="6dp"
                 android:text="Принято"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/author"
                 app:layout_constraintStart_toEndOf="@id/date"
                 app:layout_constraintTop_toTopOf="@id/author" />
@@ -87,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:text="Категория"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -143,7 +145,7 @@
                 app:layout_constraintTop_toBottomOf="@id/description" />
 
             <TextView
-                android:id="@+id/postitive"
+                android:id="@+id/positive"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -155,7 +157,7 @@
                 app:layout_constraintTop_toBottomOf="@id/postitive_title" />
 
             <TextView
-                android:id="@+id/negative_title"
+                android:id="@+id/newness_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -164,10 +166,10 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/postitive" />
+                app:layout_constraintTop_toBottomOf="@id/positive" />
 
             <TextView
-                android:id="@+id/negative"
+                android:id="@+id/newness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -176,7 +178,7 @@
                 android:text="Поверхность спонтанно тормозит объект. Атом концентрирует взрыв, генерируя периодические импульсы синхротронного излучения. Возмущение плотности индуцирует фронт, при этом дефект массы не образуется. Возмущение плотности, несмотря на внешние воздействия, изотермично искажает лептон. Не только в вакууме, но и в любой нейтральной среде относительно низкой плотности разрыв экстремально сжимает осциллятор."
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/negative_title" />
+                app:layout_constraintTop_toBottomOf="@id/newness_title" />
 
             <TextView
                 android:id="@+id/expences_title"
@@ -187,11 +189,12 @@
                 android:text="Расходы"
                 android:textSize="12sp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/negative" />
+                app:layout_constraintTop_toBottomOf="@id/newness" />
 
             <TextView
-                android:id="@+id/expences"
+                android:id="@+id/expenses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -199,6 +202,7 @@
                 android:layout_marginEnd="16dp"
                 android:text="Поверхность спонтанно тормозит объект. Атом концентрирует взрыв, генерируя периодические импульсы синхротронного излучения. Возмущение плотности индуцирует фронт, при этом дефект массы не образуется. Возмущение плотности, несмотря на внешние воздействия, изотермично искажает лептон. Не только в вакууме, но и в любой нейтральной среде относительно низкой плотности разрыв экстремально сжимает осциллятор."
                 android:textSize="16sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/expences_title" />
 
@@ -211,8 +215,9 @@
                 android:text="Требуемые сроки"
                 android:textSize="12sp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/expences" />
+                app:layout_constraintTop_toBottomOf="@id/expenses" />
 
             <TextView
                 android:id="@+id/period"
@@ -223,6 +228,7 @@
                 android:layout_marginEnd="16dp"
                 android:text="Поверхность спонтанно тормозит объект. Атом концентрирует взрыв, генерируя периодические импульсы синхротронного излучения. Возмущение плотности индуцирует фронт, при этом дефект массы не образуется. Возмущение плотности, несмотря на внешние воздействия, изотермично искажает лептон. Не только в вакууме, но и в любой нейтральной среде относительно низкой плотности разрыв экстремально сжимает осциллятор."
                 android:textSize="16sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/period_title" />
 
@@ -235,6 +241,7 @@
                 android:text="Документы"
                 android:textSize="12sp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/period" />
 
@@ -247,6 +254,7 @@
                 android:layout_marginEnd="16dp"
                 android:text="vk.com"
                 android:textSize="16sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/docs_title" />
 
@@ -259,6 +267,7 @@
                 android:text="Документы"
                 android:textSize="12sp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/docs" />
 
@@ -271,6 +280,7 @@
                 android:layout_marginEnd="16dp"
                 android:text="drive.google.com"
                 android:textSize="16sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/dop_title" />
 
@@ -280,7 +290,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Документы"
+                android:text="Экономическая эффективность"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -293,8 +303,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="64dp"
                 android:text="12321321312312312313123"
                 android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/economic_effect_title" />
 

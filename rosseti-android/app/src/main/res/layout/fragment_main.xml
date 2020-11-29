@@ -10,6 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:elevation="8dp">
 
         <com.mancj.materialsearchbar.MaterialSearchBar
@@ -24,6 +25,7 @@
             app:mt_hint="Поиск"
             app:mt_maxSuggestionsCount="10"
             app:mt_placeholder="Поиск"
+
             app:mt_speechMode="true" />
 
     </com.google.android.material.appbar.AppBarLayout>

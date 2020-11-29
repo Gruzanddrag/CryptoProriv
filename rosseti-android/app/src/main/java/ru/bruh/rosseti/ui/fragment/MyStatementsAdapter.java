@@ -1,5 +1,6 @@
 package ru.bruh.rosseti.ui.fragment;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,6 @@ import java.util.Random;
 import ru.bruh.rosseti.R;
 import ru.bruh.rosseti.model.StatementModel;
 
-/**
- * @author Onanov Aleksey (@onanov)
- */
 public class MyStatementsAdapter extends RecyclerView.Adapter<MyStatementsAdapter.MyStatementViewHolder> {
 
     private List<StatementModel> items = new ArrayList<>();
@@ -73,6 +71,7 @@ public class MyStatementsAdapter extends RecyclerView.Adapter<MyStatementsAdapte
         private ImageView message;
         private ImageView favorite;
         private TextView comments;
+        private TextView status;
 
 
         public MyStatementViewHolder(@NonNull View itemView) {
@@ -90,14 +89,41 @@ public class MyStatementsAdapter extends RecyclerView.Adapter<MyStatementsAdapte
             message = itemView.findViewById(R.id.message);
             favorite = itemView.findViewById(R.id.favorite);
             comments = itemView.findViewById(R.id.comments);
+            status = itemView.findViewById(R.id.status);
 
-            title.setText(model.name);
-            description.setText(model.projectDescription);
-            author.setText(model.author.surname + " " + model.author.name);
+            title.setText(Html.fromHtml(model.name));
+            description.setText(Html.fromHtml(model.projectDescription));
+            author.setText(model.author.fIO);
             date.setText(new SimpleDateFormat("dd MMM yyyy").format(new Date(model.createdAt * 1000)));
             rating.setText(model.upvotes.toString());
             category.setText(model.category.name);
             comments.setText(Integer.toString(new Random().nextInt(500)));
+            status.setText(model.status.statusName);
+
+            int statusResId = 0;
+            switch (model.status.status) {
+                case 0:
+                    statusResId = R.drawable.grey_dot;
+                    break;
+                case 1:
+                    statusResId = R.drawable.blue_dot;
+                    break;
+                case 2:
+                    statusResId = R.drawable.red_dot;
+                    break;
+                case 3:
+                    statusResId = R.drawable.yellow_dot;
+                    break;
+                case 4:
+                    statusResId = R.drawable.red_dot;
+                    break;
+                default:
+                    statusResId = R.drawable.green_dot;
+                    break;
+            }
+
+            status.setCompoundDrawablesWithIntrinsicBounds(statusResId, 0, 0, 0);
+
             upvote.setOnClickListener(view -> {
                 boolean isSelected = !upvote.isSelected();
                 upvote.setSelected(isSelected);
@@ -126,10 +152,10 @@ public class MyStatementsAdapter extends RecyclerView.Adapter<MyStatementsAdapte
                     listener.onMessageClick(model);
             });
 
-            itemView.setOnClickListener(view -> itemView.setOnClickListener(view1 -> {
+            itemView.setOnClickListener(view -> {
                 if (listener != null)
                     listener.onItemClick(model);
-            }));
+            });
 
         }
     }
