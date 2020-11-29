@@ -106,6 +106,12 @@ public class StatementFragment extends Fragment {
         dop.setMovementMethod(LinkMovementMethod.getInstance());*/
 
         comments.setText("Комментарии: " + new Random().nextInt(250));
+        comments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) getActivity()).setFragment(CommentsFragment.newInstance(), true);
+            }
+        });
 
         return view;
     }
