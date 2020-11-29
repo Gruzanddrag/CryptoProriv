@@ -100,10 +100,10 @@
             </v-app>
         </v-flex>
         <v-flex md8>
-            <v-app class="rounded ma-11" style="box-shadow: 0px 4px 20px #bdbdbd;max-height:90vh;">
+            <v-app class="rounded ma-11" style="box-shadow: 0px 4px 20px #bdbdbd;min-height:90vh;">
                     <v-container>
                         <v-flex pa-5>
-                            <h2 style="color:#0D1E29;margin-bottom:20px;">История заявок</h2> 
+                            <h2 style="color:#0D1E29;margin-bottom:20px;">История заявок</h2>
                             <v-card class="pa-10">   
                             <v-layout row wrap>
                                 <v-flex xs12 md4>
@@ -129,12 +129,15 @@
                                         white--text caption my-2 red darken-1">
                                         Недоступно
                                         </v-chip>
-                                </div>
-                                </v-flex>
-                            </v-layout>  
-                        </v-card>                   
+                                    </div>
+                                    </v-flex>
+                                </v-layout>  
+                            </v-card>                 
                     </v-flex>
-                    <v-divider></v-divider>
+                     <v-divider></v-divider>
+                    <div class="small" style="margin: 10px;">
+                        <line-chart :chart-data="datacollection"></line-chart>
+                    </div>  
                 </v-container>             
             </v-app>  
         </v-flex>
@@ -143,7 +146,39 @@
 </template>
 
 <script>
+import LineChart from '../components/LineChart.js'
+
 export default {
     name: 'myDesk',
+    components: {
+      LineChart
+    },
+    data () {
+      return {
+        datacollection: null,
+      }
+    },
+    mounted () {
+      this.fillData()
+    },
+    methods: {
+      fillData () {
+        this.datacollection = {
+          labels: ['Январь', 'Февраль','Март', 'Апрель','Май', 'Июнь','Июль', 'Август','Сентябрь', 'Октябрь','Ноябрь', 'Декабрь'],
+          datasets: [{
+            label: 'Просмотры пользователей',
+            backgroundColor: 'rgba(63,94,251,1)',
+            data: [21, 18, 19, 22, 24, 23, 25, 22, 17, 19, 21, 23, 10]
+        }]
+        }
+      }
+    },
 }
 </script>
+
+<style>
+  .small {
+    max-width: 600px;
+    margin:  150px auto;
+  }
+</style>
