@@ -175,7 +175,6 @@ export default {
     },
 }
 </script>
-<<<<<<< HEAD
 
 <style>
   .small {
@@ -183,5 +182,3 @@ export default {
     margin:  150px auto;
   }
 </style>
-=======
->>>>>>> 4252782f7b526b249a528dd0a734d4a7d066a5e6
