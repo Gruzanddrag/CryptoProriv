@@ -2,9 +2,11 @@ package ru.bruh.rosseti.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -45,6 +47,15 @@ public class ProfileFragment extends Fragment {
         education = view.findViewById(R.id.education_edit_text);
         status = view.findViewById(R.id.game_edit_text);
         count = view.findViewById(R.id.statement_count_edit_text);
+
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                getActivity().finish();
+                return true;
+            }
+        });
 
         App.api.getProfile().enqueue(new Callback<ProfileModel>() {
             @Override
