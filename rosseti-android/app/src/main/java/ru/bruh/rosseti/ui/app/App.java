@@ -9,9 +9,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.bruh.rosseti.api.Api;
 
-/**
- * @author Onanov Aleksey (@onanov)
- */
 public class App extends Application {
 
     private Retrofit retrofit;

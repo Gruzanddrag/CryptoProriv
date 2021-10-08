@@ -2,4 +2,58 @@
     <string name="app_name">Rosseti Community</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <array name="names">
+        <item>Варламов Андрей</item>
+        <item>Багдасарян Артур</item>
+        <item>Дмитров Иннокентий</item>
+        <item>Полоцкая Елизавета</item>
+        <item>Слепакова Светлана</item>
+        <item>Жванецкий Михаил</item>
+        <item>Пыхтин Геннадий</item>
+        <item>Назоренко Иван</item>
+        <item>Горский Святослав</item>
+        <item>Соболев Любомир</item>
+        <item>Булахов Добрыня</item>
+    </array>
+
+    <array name="messages">
+        <item>Привет, отличная тема!</item>
+        <item>Баревдзес, брат! Скинь исходники.</item>
+        <item>Обстановка меня напрягает</item>
+        <item>Наши сердца требуют перемен!</item>
+        <item>Не могу дозвониться до дизайнера...</item>
+        <item>Рассчеты не совсем верны</item>
+        <item>Аргументы и есть получше.</item>
+        <item>Отличное предложение!</item>
+        <item>Согласен с Иваном.</item>
+        <item>Я 10 лет в It, вы все делаете не так!</item>
+        <item>Я пишу заявление об увольнении.</item>
+    </array>
+
+    <array name="chat">
+        <item>Привет, отличная тема!</item>
+        <item>Спасибо большое! Очень рад получить такой фидбек)</item>
+        <item>Я тоже давно думаю над подобным решением, но никак не могу продумать реализацию</item>
+        <item>Понимаю, сам долго искал классное решение.</item>
+        <item>Как продвигается рассмотрение?</item>
+        <item>Получил обратную связь от модераторов, уже внес правки и отправил на перепроверку.
+        </item>
+        <item>Понял тебя, тогда удачи)</item>
+        <item>Большое спасибо)</item>
+    </array>
+
+    <array name="comments">
+        <item>Согласен</item>
+        <item>Спасибо! Пожалуйста, поставьте +1 к рейтингу.</item>
+        <item>Сделано)</item>
+        <item>Ура, буду ждать, когда встроят.</item>
+        <item>Вперед прогрессу!</item>
+        <item>Хахахаха, поддерживаю)</item>
+    </array>
+
+
+
+
+    <string name="to_come_in"> Войти</string>
 </resources>

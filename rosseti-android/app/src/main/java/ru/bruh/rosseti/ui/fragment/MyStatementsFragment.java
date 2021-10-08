@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,7 +51,7 @@ public class MyStatementsFragment extends Fragment {
 
             @Override
             public void onMessageClick(StatementModel model) {
-                ((MainActivity) getActivity()).setFragment(MessageFragment.newInstance(), true);
+                ((MainActivity) getActivity()).setFragment(MessageFragment.newInstance(model.author.fIO), true);
             }
 
             @Override
@@ -62,16 +64,30 @@ public class MyStatementsFragment extends Fragment {
         App.api.getStatements().enqueue(new Callback<List<StatementModel>>() {
             @Override
             public void onResponse(Call<List<StatementModel>> call, Response<List<StatementModel>> response) {
-                adapter.setData(response.body());
+                ArrayList<StatementModel> list = new ArrayList<>();
+                for (StatementModel model : response.body()) {
+                    if (model.id == 6)
+                        list.add(model);
+                }
+                adapter.setData(list);
             }
 
             @Override
             public void onFailure(Call<List<StatementModel>> call, Throwable t) {
-                new AlertDialog.Builder(getContext()).setMessage(t.getMessage()).show();
+                new AlertDialog.Builder(getContext())
+                        .setMessage(t.getMessage())
+                        .setPositiveButton("Ок", (dialogInterface, i) -> dialogInterface.dismiss())
+                        .show();
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        ((MainActivity) Objects.requireNonNull(getActivity())).setBottomNavigationViewVisibility(true);
     }
 
     public static MyStatementsFragment newInstance() {
